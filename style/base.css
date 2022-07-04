@@ -1,0 +1,24 @@
+/*
+    variaveis base para todo os estilos
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500&family=Rubik+Moonrocks&display=swap');
+
+
+:root{
+
+    /*fonts: */
+    --font-rubik: 'Rubik Moonrocks', cursive;
+    --font-dosis: 'Dosis', sans-serif;
+
+    /*colors: */
+
+    --color-light-gray: rgb(216, 216, 216);
+    --color--gray: #aaa;
+    --color-aqua: rgba(20, 230, 230, 0.76);
+    --color-blue: rgba(10, 10, 243, 0.76);
+    --color-white: white;
+    --color-light-black: rgb(34, 34, 34);
+    
+    
+}
