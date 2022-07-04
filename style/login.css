@@ -23,17 +23,20 @@
 
     /* caixa*/
     height: 20rem;
-    border: 1px solid;
+    border: 1px solid var(--color-dark-gray);
     border-radius: 20px;
 
     /*color*/
+    background-color: var(--color-dark-gray);
     
-
+    /*efeitos*/
+    box-shadow: 0 0 1em var(--color-black)
 }
 
 
 h1{ 
     /*tamanho da fonte*/
+    margin-top: 10px;
     margin-bottom: 20px;
     padding: 6px;
 
@@ -52,11 +55,21 @@ input{
     margin: 10px 15px;
 
     border-radius: 13px;
-    border: 1px solid;
+    border: 1px solid var(--color-darker-gray);
     
     outline: none;
     
 }
+
+
+label{
+    font-family: var(--font-roboto);
+
+    margin-bottom: 40px;
+
+
+}
+
 
 button{
 
@@ -68,7 +81,7 @@ button{
     margin: 0 auto; /* Alinhar o botão ao centro*/
 
     /*configuração da fonte*/
-    font-family: var(--font-dosis);
+    font-family: var(--font-roboto);
     font-weight: bold;
     font-size: 1rem;
     color: var(--color-gray);
@@ -85,6 +98,10 @@ button{
     /*configurações do botão*/
     cursor: pointer;
 
+}
+
+button:hover{
+    background-color: var(--color-dark-blue);
 }
 
 button:disabled{
