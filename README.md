@@ -8,10 +8,8 @@ Esse projeto foi feito com o intuito de treinar minhas abilidades no <code>HTML<
 
 <details>
  	<summary><strong>Diário do projeto</strong></summary>
-  
-	<strong>001:</strong> <a href="./src/001.md">Começando a pagina de login</a> <br>
+	<strong>001:</strong> <a href="./src/001.md">Começando a pagina de login</a> 
 	<strong>002:</strong> <a href="./src/002.md">Uma nova página + novos estilos na página</a>
-	<br>
 	
 </details>
 
