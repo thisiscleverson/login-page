@@ -9,7 +9,7 @@ Esse projeto foi feito com o intuito de treinar minhas abilidades no <code>HTML<
 <details>
   <summary><strong>Diário do projeto</strong></summary>
   
-<strong>001:</strong> <a href='./src/começando\ a\ pagina\ de\ login.md.md '>Começando a pagina de login</a>
+<strong>001:</strong> <a href='./src/começando\ a\ pagina\ de\ login.md '>Começando a pagina de login</a>
 	
 </details>
 
