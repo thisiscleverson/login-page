@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href=".././style/reset.css">
+        <link rel="stylesheet" href=".././style/base.css">
+        <link rel="stylesheet" href=".././style/registration.css">
+        
+        <title>Cadastro</title>
+    </head>
+
+    <body>
+        <form class="form__login">
+            <div class="caixa__login">
+                <h1>Cadastro</h1>
+                <input type="text" class="input__nome" placeholder="Nome" required oninvalid="this.setCustomValidity('por favor, digite seu nome')">
+                <input type="text" class="input__sobrenome" placeholder="Sobrenome" required oninvalid="this.setCustomValidity('por favor, digite seu sobrenome')">
+                <input type="email" class="input__email" placeholder="E-mail" required oninvalid="this.setCustomValidity('por favor, digite um E-mail')">
+                <input type="password" class="input__senha" placeholder="Senha" required oninvalid="this.setCustomValidity('por favor, digite uma senha')">
+
+               <!--
+                   <div class="row">
+                       <input type="password" class="senha" placeholder="Senha">
+                       <img src="https://icon-library.com/images/icon-eyes/icon-eyes-12.jpg" class="btn">
+                   </div>
+               -->
+
+                <label for="cadastro">já tem uma conta? <a href="../index.html" id="cadastro">login</a></label>
+                <button class="button__login" disabled>Concluir cadastro</button>
+            </div>
+        </form>
+    </body>
+</html>
