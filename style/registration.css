@@ -1,0 +1,115 @@
+/*
+    css para a pagina de cadastro 
+*/
+
+.form__login{
+    /*display*/
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    /* centralizar elemento na vertical*/
+    height: 100vh;
+    justify-content: center;
+    /*margin-top: 10rem;*/
+
+}
+
+.caixa__login{
+    /*display*/
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    /* caixa*/
+    /*height: 20rem;*/
+    border: 1px solid var(--color-dark-gray);
+    border-radius: 20px;
+    padding-bottom: 30px;
+
+    /*color*/
+    background-color: var(--color-dark-gray);
+    
+    /*efeitos*/
+    box-shadow: 0 0 1em var(--color-black)
+}
+
+
+h1{ 
+    /*tamanho da fonte*/
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 6px;
+
+    /*configuração da fonte*/
+    font-family: var(--font-rubik);
+    font-size: 3rem;
+
+
+}
+
+
+input{
+    width: 20rem;
+    max-width: 300px;
+    padding: 10px 5PX;
+    margin: 10px 15px;
+
+    border-radius: 13px;
+    border: 1px solid var(--color-darker-gray);
+    
+    outline: none;
+    
+}
+
+
+label{
+    font-family: var(--font-roboto);
+
+    margin-bottom: 40px;
+
+
+}
+
+
+button{
+
+    /* tamanho do botão*/
+    width: 20rem;
+    max-width: 300px;
+    padding: 10px 5PX;
+
+    margin: 0 auto; /* Alinhar o botão ao centro*/
+
+    /*configuração da fonte*/
+    font-family: var(--font-roboto);
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--color-gray);
+    
+
+    /*color*/
+    background-color: var(--color-aqua);
+    color: var(--color-light-black);
+
+    /*style*/
+    border: 0.5px solid var(--color-aqua);
+    border-radius: 15px;
+
+    /*configurações do botão*/
+    cursor: pointer;
+
+}
+
+button:hover{
+    background-color: var(--color-dark-blue);
+}
+
+button:disabled{
+    cursor:auto;
+    background-color: var(--color-light-gray);
+
+    border: 1px solid var(--color-gary);
+    border-radius: 15px;
+
+}
