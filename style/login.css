@@ -48,7 +48,7 @@ h1{
 }
 
 
-input{
+.input__email{
     width: 20rem;
     max-width: 300px;
     padding: 10px 5PX;
@@ -59,6 +59,35 @@ input{
     
     outline: none;
     
+}
+
+
+.div__input{
+    display: flex;
+    flex-direction: row;
+
+    width: 20rem;
+    max-width: 300px;
+    padding: 5px 5PX;
+    margin: 10px 15px;
+
+    border-radius: 13px;
+    border: 1px solid var(--color-darker-gray);
+    background-color: var(--color-white);
+    
+    outline: none;
+}
+
+.div__input input{
+    border: none;
+    width: 100%;
+    outline: 0;
+}
+
+.eye__button{
+    margin-right: 5px;
+    height: 25px;
+    opacity: 0.5;
 }
 
 
