@@ -6,11 +6,21 @@ function clickButtonEye(){
 
     if(input__password.type == "password"){
         input__password.type = "text"
-        button_eye.src = "/imgs/eye-close.svg"
+
+        if(input__password.name == "input__senha-login"){
+            button_eye.src = "./imgs/eye-close.svg"
+        }else{
+            button_eye.src = ".././imgs/eye-close.svg"
+        }
 
     }else{
         input__password.type = "password"
-        button_eye.src = "/imgs/eye-open.svg"
+
+        if(input__password.name == "input__senha-login"){
+            button_eye.src = "./imgs/eye-open.svg"
+        }else{
+            button_eye.src = ".././imgs/eye-open.svg"
+        }
     }
 }
 
