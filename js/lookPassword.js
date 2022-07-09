@@ -6,11 +6,11 @@ function clickButtonEye(){
 
     if(input__password.type == "password"){
         input__password.type = "text"
-        button_eye.src = ".././imgs/eye-close.svg"
+        button_eye.src = "/imgs/eye-close.svg"
 
     }else{
         input__password.type = "password"
-        button_eye.src = ".././imgs/eye-open.svg"
+        button_eye.src = "/imgs/eye-open.svg"
     }
 }
 
