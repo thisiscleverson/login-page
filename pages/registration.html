@@ -4,11 +4,13 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="stylesheet" href=".././style/reset.css">
         <link rel="stylesheet" href=".././style/base.css">
         <link rel="stylesheet" href=".././style/registration.css">
-        <script src=".././js/lookPassword.js" defer></script>
 
+        <script src=".././js/lookPassword.js" defer></script>
+        
         <title>Cadastro</title>
     </head>
 
@@ -16,21 +18,23 @@
         <form class="form__login">
             <div class="caixa__login">
                 <h1>Cadastro</h1>
-                <input type="text"  id="form__input" class="input__nome" placeholder="Nome" required oninvalid="this.setCustomValidity('por favor, digite seu nome')">
-                <input type="text"  id="form__input" class="input__sobrenome" placeholder="Sobrenome" required oninvalid="this.setCustomValidity('por favor, digite seu sobrenome')">
-                <input type="email" id="form__input" class="input__email" placeholder="E-mail" required oninvalid="this.setCustomValidity('por favor, digite um E-mail')">
+                <input type="text"  id="form__input" class="input__nome" placeholder="Nome" required>
+                <input type="text"  id="form__input" class="input__sobrenome" placeholder="Sobrenome" required>
+                <input type="email" id="form__input" class="input__email" placeholder="E-mail" required >
                 <!-- <input type="password" class="input__senha" placeholder="Senha" required oninvalid="this.setCustomValidity('por favor, digite uma senha')"> -->
 
                
                 <div class="div__input">
-                    <input type="password" class="input__senha" placeholder="Senha">
+                    <input type="password" class="input__senha" placeholder="Senha" >
                     <img src=".././imgs/eye-open.svg" class="eye__button" width="25px">
                 </div>
-               
 
                 <label for="cadastro">já tem uma conta? <a href="../index.html" id="cadastro">login</a></label>
-                <button class="button__login" disabled>Concluir cadastro</button>
+                <button type="submit" class="button__login">Concluir cadastro</button>
             </div>
         </form>
+
+        <script src=".././js/register.js"></script>
+
     </body>
 </html>
