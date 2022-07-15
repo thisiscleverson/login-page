@@ -13,6 +13,8 @@ Esse projeto foi feito com o intuito de treinar minhas abilidades no <code>HTML<
 	<strong>002:</strong> <a href="./src/002.md">Uma nova página + novos estilos na página</a>
 	<br>
 	<strong>003:</strong> <a href="./src/003.md">botão mostrar/ocultar senha</a>
+	<br>
+	<strong>003:</strong> <a href="./src/004.md">criando o script do cadastro</a>
 	
 </details>
 
