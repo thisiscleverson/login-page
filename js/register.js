@@ -35,6 +35,7 @@ function check_Name(name){
 
     }
     else{
+        window.oninvalid = "this.setCustomValidity('por favor, digite seu nome')"
         console.log('seu nome tem o n° de letras insuficientes!');
 
     }
@@ -116,27 +117,70 @@ function check_Email(email){
 
 
 function check_Password(password){
+    let Password = password.value;
 
+    if(Password.length > 7){
+        personData.password = Password;
+    }
+    else{
+        console.log('Sua senha tem que ter no minimo 8 caracteres!')
+    }
 }
 
+
+function salve_data(data){
+
+    //verificar a lista de dados do usuário não contém [NaN]
+    if(data.name === NaN){
+        console.log('erro ao cadastrar o nome')
+        return
+    }
+    if(data.surname === NaN){
+        console.log('erro ao cadastrar o sobrenome')
+        return
+    }
+    if(data.email === NaN){
+        console.log('erro ao cadastrar o email')
+        return
+    }
+    if(data.password === NaN){
+        console.log('erro ao cadastrar o senha')
+        return
+    }
+    //_________________________________________________//
+    
+    //verificar se a conta já é registrada
+    for (let i = 0; i < localStorage.length; i++){
+        let key = localStorage.key(i);
+        
+        if(key == data.email){
+            console.log('conta já existente!');
+        }
+      }
+
+      localStorage.setItem(data.email, JSON.stringify(data)); // salvar cadastro no local storage do navegador
+
+}
 
 //--------------------------------------------------------------------------------------------------------------------//
 form.addEventListener('submit', function register(event){
 
     event.preventDefault();// não carregar a pagina
 
-    let get_Name     = document.querySelector('.input__nome');   // pegar o nome do campo da input
+    let get_Name     = document.querySelector('.input__nome');        // pegar o nome do campo da input
     let get_Surname  = document.querySelector('.input__sobrenome');   // pegar o sobrenome da caixa da input
-    let get_Email    = document.querySelector('.input__email');   // pegar a e-mail da caixa de input 
-    let get_Password = document.querySelector('.input__senha');   // pegar a senha da caixa de input 
+    let get_Email    = document.querySelector('.input__email');       // pegar a e-mail da caixa de input 
+    let get_Password = document.querySelector('.input__senha');       // pegar a senha da caixa de input 
 
     //---------------------------------------------------//
     check_Name(get_Name);         // verificar o nome
     check_Surname(get_Surname);   // verificar o sobrenome
     check_Email(get_Email);       // verificar o E-mail
     check_Password(get_Password); // verificar a senha do usuário
+    //---------------------------------------------------//
+    salve_data(personData);
 
-    //console.log(personData);
+    window.location = '../index.html' // ir para página de login
     
 })
 
