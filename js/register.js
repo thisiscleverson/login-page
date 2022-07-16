@@ -154,6 +154,7 @@ function salve_data(data){
         if(key == data.email){
             console.log('conta já existente!');
         }
+        
       }
 
       localStorage.setItem(data.email, JSON.stringify(data)); // salvar cadastro no local storage do navegador
