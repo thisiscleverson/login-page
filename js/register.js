@@ -35,9 +35,7 @@ function check_Name(name){
 
     }
     else{
-        window.oninvalid = "this.setCustomValidity('por favor, digite seu nome')"
         console.log('seu nome tem o n° de letras insuficientes!');
-
     }
 }
 
