@@ -54,6 +54,7 @@ h1{
     max-width: 300px;
     padding: 10px 5PX;
     margin: 10px 15px;
+    font-family: 'Courier New', Courier, monospace;
 
     border-radius: 13px;
     border: 1px solid var(--color-darker-gray);
@@ -84,6 +85,7 @@ h1{
     border: none;
     width: 100%;
     outline: 0;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .eye__button{
