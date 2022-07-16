@@ -90,16 +90,15 @@ function check_login(data){
         //veficar se o email é valido
         if(key == data.email){
             let myItem = JSON.parse(localStorage.getItem(key));
-            console.log(myItem);
 
             //verificar a senha
             if(myItem.password === data.password){
-                window.location = '.././pages/user.html' // ir para página de usuário
+                window.location = '../pages/user.html' // ir para página de usuário
             }
         }
     }
 
-      console.log('Conta não registrada!')
+    console.log('Conta não registrada!')
 }
 
 
@@ -112,10 +111,10 @@ form__login.addEventListener('submit', function register(event){
     let get_Password = document.querySelector('.input__senha');       // pegar a senha da caixa de input 
 
     //---------------------------------------------------//
-    check_Email(get_Email);       // verificar o E-mail
-    check_Password(get_Password); // verificar a senha do usuário
+    check_Email(get_Email);        // verificar o E-mail
+    check_Password(get_Password);  // verificar a senha do usuário
     //---------------------------------------------------//
-    check_login(LoginData)
+    check_login(LoginData);  // verificar login
     
     
 })
