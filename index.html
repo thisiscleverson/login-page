@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="./style/base.css">
         <link rel="stylesheet" href="./style/login.css">
         <script src="./js/lookPassword.js" defer></script>
+        <script src="./js/login.js" defer></script>
 
         <title>Login</title>
     </head>
@@ -16,15 +17,15 @@
         <form class="form__login">
             <div class="caixa__login">
                 <h1>Login</h1>
-                <input type="email" class="input__email" placeholder="seu usuário" required oninvalid="this.setCustomValidity('por favor, digite seu email')">
+                <input type="email" class="input__email" placeholder="seu usuário" required>
                 
                 <div class="div__input">
-                    <input type="password" class="input__senha" placeholder="Senha" name="input__senha-login">
+                    <input type="password" class="input__senha" placeholder="Senha" name="input__senha-login" required>
                     <img src="./imgs/eye-open.svg" class="eye__button" width="25px">
                 </div>
                
                 <label for="cadastro">não é membro ainda? <a href="./pages/registration.html" id="cadastro">cadastre-se</a></label>
-                <button class="button__login" disabled>Entre</button>
+                <button type="submit" class="button__login">Entre</button>
             </div>
         </form>
         
