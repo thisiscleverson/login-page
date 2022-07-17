@@ -177,8 +177,8 @@ form.addEventListener('submit', function register(event){
     check_Email(get_Email);       // verificar o E-mail
     check_Password(get_Password); // verificar a senha do usuário
     //---------------------------------------------------//
-    salve_data(personData);
 
+    salve_data(personData);
     window.location = '../index.html' // ir para página de login
     
 })
