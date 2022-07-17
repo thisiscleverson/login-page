@@ -6,7 +6,7 @@
 
 */
 //importar modulos de avisos
-import { warningLoginErro, warningInput } from "./warning.js";
+import { warningBoxErro, warningInput } from "./warning.js";
 
 
 
@@ -25,8 +25,7 @@ const LoginData = {
 //------------------------------------------[functions]--------------------------------------//
 function check_Email(email){
     let Email = email.value;
-    const character = ['!','@','#','$','%','¨','&','*','(',')','-','=','+']; // lista de caracteris não permitido
-
+    
     //separar usuário do provedor de email
     let user     = Email.split("@")[0]; // usuário
     let provider = Email.split("@")[1]; // provedor
@@ -48,11 +47,11 @@ function check_Email(email){
 
         default:
             let msg = "❗ Seu provedor de email é desconhecido! Por favor use ['gmail','yahool' ou 'outlook']."
-            warningLoginErro(msg); // mostrar erro do login [conta não registrada]
+            warningBoxErro(msg); // mostrar erro do login [conta não registrada]
             return false;
     }
 
-    return true
+    return true;
 }
 
 
@@ -88,6 +87,8 @@ function check_login(data){
             if(myItem.password === data.password){
                 //window.location = '../pages/thanks.html' // ir para página de usuário
                 window.location = './pages/thanks.html' // ir para página de usuário [github pages]
+                dataIsValid = true;
+                return; 
             }else{
                 dataIsValid = false; // dados não é valido
             }
@@ -100,7 +101,7 @@ function check_login(data){
     // se os dados não for validos mostrar aviso.
     if(dataIsValid == false){
         let msg = "❗ Seus dados não conferem. Por favor, verifique se seus dados estão corretos."
-        warningLoginErro(msg); // mostrar erro do login [conta não registrada]
+        warningBoxErro(msg); // mostrar erro do login [conta não registrada]
     }
 }
 
