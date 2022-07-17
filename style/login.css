@@ -22,7 +22,8 @@
     text-align: center;
 
     /* caixa*/
-    height: 20rem;
+    margin-top: 20px;
+    /*height: 20rem;*/
     border: 1px solid var(--color-dark-gray);
     border-radius: 20px;
 
@@ -72,8 +73,10 @@ h1{
     padding: 5px 5PX;
     margin: 10px 15px;
 
+    --color-border: var(--color-darker-gray);
+
     border-radius: 13px;
-    border: 1px solid var(--color-darker-gray);
+    border: 1px solid var(--color-border);
     background-color: var(--color-white);
     
     outline: none;
@@ -125,6 +128,7 @@ button{
     /*style*/
     border: 0.5px solid var(--color-aqua);
     border-radius: 15px;
+    margin-bottom: 20px;
 
     /*configurações do botão*/
     cursor: pointer;
@@ -133,13 +137,4 @@ button{
 
 button:hover{
     background-color: var(--color-dark-blue);
-}
-
-button:disabled{
-    cursor:auto;
-    background-color: var(--color-light-gray);
-
-    border: 1px solid var(--color-gary);
-    border-radius: 15px;
-
 }
