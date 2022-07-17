@@ -8,33 +8,37 @@
         <link rel="stylesheet" href=".././style/reset.css">
         <link rel="stylesheet" href=".././style/base.css">
         <link rel="stylesheet" href=".././style/registration.css">
+        <link rel="stylesheet" href=".././style/warning.css">
 
         <script src=".././js/lookPassword.js" defer></script>
+        <script type="module" src=".././js/register.js" defer></script>
         
         <title>Cadastro</title>
     </head>
 
     <body>
         <form class="form__login">
+            <div id="caixa__avisos"></div>
             <div class="caixa__login">
                 <h1>Cadastro</h1>
                 <input type="text"  id="form__input" class="input__nome" placeholder="Nome" required>
+                <div id="warning_name"></div>
                 <input type="text"  id="form__input" class="input__sobrenome" placeholder="Sobrenome" required>
+                <div id="warning_surname"></div>
                 <input type="email" id="form__input" class="input__email" placeholder="E-mail" required >
-                <!-- <input type="password" class="input__senha" placeholder="Senha" required oninvalid="this.setCustomValidity('por favor, digite uma senha')"> -->
+                <div id="warning_email"></div>
+            
 
-               
                 <div class="div__input">
                     <input type="password" class="input__senha" placeholder="Senha" required>
                     <img src=".././imgs/eye-open.svg" class="eye__button" width="25px">
                 </div>
+                <div id="warning_password"></div>
 
                 <label for="cadastro">já tem uma conta? <a href="../index.html" id="cadastro">login</a></label>
                 <button type="submit" class="button__login">Concluir cadastro</button>
             </div>
         </form>
-
-        <script src=".././js/register.js"></script>
 
     </body>
 </html>
