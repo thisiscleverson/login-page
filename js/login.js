@@ -82,6 +82,7 @@ function check_login(data){
         //veficar se o email é valido
         if(key == data.email){
             let myItem = JSON.parse(localStorage.getItem(key));
+            dataIsValid = true; 
 
             //verificar a senha
             if(myItem.password === data.password){
