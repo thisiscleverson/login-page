@@ -6,6 +6,10 @@
 
 */
 //--------------------------------------------------------------------------------------------------------------------//
+
+import { warningBoxErro, removeWarningBoxErro, warningInput } from "./warning.js";
+
+
 const form = document.querySelector('.form__login');
 
 
@@ -23,19 +27,24 @@ function check_Name(name){
     let Name = name.value;
     const character = ['!','@','#','$','%','¨','&','*','(',')','-','=','+']; // lista de caracteris não permitido
     
-    if(Name.length > 4){ // verificar se os caracteres é maior que 4
-       // verificar se o sobrenome não tem os caracters especiais atraves de uma lista de caracteres
-       for(let i=0; i < character.length; i++){
+    if(Name.length >= 4){ // verificar se os caracteres é maior que 4
+        // verificar se o sobrenome não tem os caracters especiais atraves de uma lista de caracteres
+        for(let i=0; i < character.length; i++){
             if(Name.includes(character[i])){
-                console.log('somente letras (a - z), números(0 - 9) e pontos(.) são permitidos!');
-                return;
+                let msg = '"nome" deve conter apenas caracteres alfanuméricos.';
+                warningInput('#warning_name', msg,'.input__nome','red');
+                return false;
             }
         }
         personData.name = Name; // gardar o sobrenome para o envio da dados
+        warningInput('#warning_name', '','.input__nome','--color-darker-gray');
+        return true;
 
     }
     else{
-        console.log('seu nome tem o n° de letras insuficientes!');
+        let msg = 'Seu nome tem que ter no minimo 4 letra';
+        warningInput('#warning_name', msg,'.input__nome','red');
+        return false;
     }
 }
 
@@ -48,67 +57,55 @@ function check_Surname(surname){
        // verificar se o sobrenome não tem os caracters especiais atraves de uma lista de caracteres
        for(let i=0; i < character.length; i++){
             if(Surname.includes(character[i])){
-                console.log('somente letras (a - z), números(0 - 9) e pontos(.) são permitidos!');
-                return;
+                let msg = '"sobrenome" deve conter apenas caracteres alfanuméricos.';
+                warningInput('#warning_surname', msg,'.input__sobrenome','red');
+                return false;
             }
         }
         personData.surname = Surname; // gardar o sobrenome para o envio da dados
-
+        warningInput('#warning_surname', '','.input__sobrenome','--color-darker-gray');
+        return true;
     }
     else{
-        console.log('seu sobrenome tem o n° de letras insuficientes!');
-
+        let msg = 'Seu sobrenome tem que ter no minimo 4 letra';
+        warningInput('#warning_surname', msg,'.input__sobrenome','red');
+        return false;
     }
 }
 
 
 function check_Email(email){
     let Email = email.value;
-    const character = ['!','@','#','$','%','¨','&','*','(',')','-','=','+']; // lista de caracteris não permitido
 
     //separar usuário do provedor de email
     let user     = Email.split("@")[0]; // usuário
     let provider = Email.split("@")[1]; // provedor
 
-    //verificar se os caracteres é menor que o permitido
-    if(user.length > 4){ // verificar se os caracteres é maior que 4
-        // verificar se o usuário não tem os caracters especiais atraves de uma lista de caracteres
-        for(let i=0; i < character.length; i++){
-            if(user.includes(character[i])){
-                console.log('1: somente letras (a - z), números(0 - 9) e pontos(.) são permitidos!');
-                return;
-            }
-        }
 
-        //verificar se o provedor não é menor que 4
-        
-            // verificar se o provedor não tem os caracters especiais atraves de uma lista de caracteres
-        for(let i=0; i < character.length; i++){
-            if(provider.includes(character[i])){
-                console.log('2: somente letras (a - z), números(0 - 9) e pontos(.) são permitidos!');
-                return;
-            }
-        }
         // verificar qual provedor é
-        switch(provider){
-            case "gmail.com":
-                personData.email = user + "@" + provider;
-            break;
+    switch(provider){
+        case "gmail.com":
+            warningInput('#warning_email', '','.input__email','--color-darker-gray');
+            personData.email = user + "@" + provider;
+            return true;
+        break;
 
-            case "yahool.com":
-                personData.email = user + "@" + provider;
-            break;
+        case "yahool.com":
+            warningInput('#warning_email', '','.input__email','--color-darker-gray');
+            personData.email = user + "@" + provider;
+            return true;
+        break;
 
-            case "outlook.com":
-                personData.email = user + "@" + provider;
-            break;
+        case "outlook.com":
+            warningInput('#warning_email', '','.input__email','--color-darker-gray');
+            personData.email = user + "@" + provider;
+            return true;
+        break;
 
-            default:
-                console.log('e-mail desconhecido!')
-        }
-
-    }else{
-        console.log('1: seu sobrenome tem o n° de letras insuficientes!');
+        default:
+            let msg = "Seu provedor de email é desconhecido! Por favor use ['gmail','yahool' ou 'outlook']."
+            warningInput('#warning_email', msg,'.input__email','red');
+            return false;
     }
 
 }
@@ -119,45 +116,44 @@ function check_Password(password){
 
     if(Password.length > 7){
         personData.password = Password;
+        warningInput('#warning_password', '','.div__input','--color-darker-gray');
+        return true;
     }
     else{
-        console.log('Sua senha tem que ter no minimo 8 caracteres!')
+        let msg = 'Sua senha tem que ter no minimo 8 caracteres!'
+        warningInput('#warning_password', msg,'.div__input','red');
+        return false;
     }
 }
 
 
 function salve_data(data){
 
-    //verificar a lista de dados do usuário não contém [NaN]
-    if(data.name === NaN){
-        console.log('erro ao cadastrar o nome')
-        return
-    }
-    if(data.surname === NaN){
-        console.log('erro ao cadastrar o sobrenome')
-        return
-    }
-    if(data.email === NaN){
-        console.log('erro ao cadastrar o email')
-        return
-    }
-    if(data.password === NaN){
-        console.log('erro ao cadastrar o senha')
-        return
-    }
-    //_________________________________________________//
+    let already_exists = false;
     
     //verificar se a conta já é registrada
     for (let i = 0; i < localStorage.length; i++){
         let key = localStorage.key(i);
         
         if(key == data.email){
-            console.log('conta já existente!');
+            already_exists = true;
+            break;
+        }else{
+            already_exists = false;
         }
         
       }
 
-      localStorage.setItem(data.email, JSON.stringify(data)); // salvar cadastro no local storage do navegador
+      if(already_exists == false){
+            removeWarningBoxErro();
+            warningInput('#warning_email', '','.input__email','--color-darker-gray');
+            localStorage.setItem(data.email, JSON.stringify(data)); // salvar cadastro no local storage do navegador
+            window.location = '../index.html' // ir para página de login*/
+      }else{
+        let msg = "❗ Essa conta já é registrada!"
+        warningInput('#warning_email', '', '.input__email','red')
+        warningBoxErro(msg); // mostrar erro do login [conta não registrada]
+      }
 
 }
 
@@ -172,14 +168,20 @@ form.addEventListener('submit', function register(event){
     let get_Password = document.querySelector('.input__senha');       // pegar a senha da caixa de input 
 
     //---------------------------------------------------//
-    check_Name(get_Name);         // verificar o nome
-    check_Surname(get_Surname);   // verificar o sobrenome
-    check_Email(get_Email);       // verificar o E-mail
-    check_Password(get_Password); // verificar a senha do usuário
+    let nameOkay     = check_Name(get_Name);         // verificar o nome
+    let surnameOkay  = check_Surname(get_Surname);   // verificar o sobrenome
+    let emailOkay    = check_Email(get_Email);       // verificar o E-mail
+    let passwordOkay = check_Password(get_Password); // verificar a senha do usuário
     //---------------------------------------------------//
 
-    salve_data(personData);
-    window.location = '../index.html' // ir para página de login
+    if(nameOkay == true && surnameOkay == true && emailOkay == true && passwordOkay == true){
+        removeWarningBoxErro();
+        salve_data(personData);
+    }
+    else{
+        let msg = "❗ foi impossível cadastrar sua conta. Por favor, verifique seus dados."
+        warningBoxErro(msg); // mostrar erro do login [conta não registrada]
+    }
     
 })
 
