@@ -73,6 +73,8 @@ function check_Password(password){
 
 
 function check_login(data){
+
+    let dataIsValid = true;
     
     for (let i = 0; i < localStorage.length; i++){
         let key = localStorage.key(i);
@@ -84,11 +86,20 @@ function check_login(data){
             //verificar a senha
             if(myItem.password === data.password){
                 window.location = '../pages/user.html' // ir para página de usuário
+            }else{
+                dataIsValid = false; // dados não é valido
             }
+
+        }else{
+            dataIsValid = false; // dados não é valido
         }
     }
-    let msg = "❗ Seus dados não conferem. Por favor, verifique se seus dados estão corretos."
-    warningLoginErro(msg); // mostrar erro do login [conta não registrada]
+
+    // se os dados não for validos mostrar aviso.
+    if(dataIsValid == false){
+        let msg = "❗ Seus dados não conferem. Por favor, verifique se seus dados estão corretos."
+        warningLoginErro(msg); // mostrar erro do login [conta não registrada]
+    }
 }
 
 
