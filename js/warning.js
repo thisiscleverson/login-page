@@ -4,11 +4,17 @@
 
 
 
-function warningLoginErro(msg){
+function warningBoxErro(msg){
     let caixa_aviso = document.querySelector('#caixa__avisos');
     caixa_aviso.classList.add("caixa__avisos");
     caixa_aviso.textContent = msg;
 
+}
+
+function removeWarningBoxErro(){
+    let caixa_aviso = document.querySelector('#caixa__avisos');
+    caixa_aviso.classList.remove("caixa__avisos");
+    caixa_aviso.textContent = '';
 }
 
 
@@ -26,4 +32,4 @@ function warningInput(id, msg, changeStyle, color){
 
 
 // exporta modulo 
-export { warningLoginErro, warningInput };
+export { warningBoxErro, removeWarningBoxErro, warningInput };
