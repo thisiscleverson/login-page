@@ -56,8 +56,10 @@ h1{
     margin: 10px 15px;
     font-family: 'Courier New', Courier, monospace;
 
+    --color-border: var(--color-darker-gray);
+
     border-radius: 13px;
-    border: 1px solid var(--color-darker-gray);
+    border: 1px solid var(--color-border);
     
     outline: none;
     
@@ -74,8 +76,10 @@ h1{
     padding: 5px 5PX;
     margin: 10px 15px;
 
+    --color-border: var(--color-darker-gray);
+
     border-radius: 13px;
-    border: 1px solid var(--color-darker-gray);
+    border: 1px solid var(--color-border);
     background-color: white;
     
     outline: none;
@@ -97,10 +101,7 @@ h1{
 
 label{
     font-family: var(--font-roboto);
-
     margin-bottom: 40px;
-
-
 }
 
 
@@ -137,11 +138,3 @@ button:hover{
     background-color: var(--color-dark-blue);
 }
 
-button:disabled{
-    cursor:auto;
-    background-color: var(--color-light-gray);
-
-    border: 1px solid var(--color-gary);
-    border-radius: 15px;
-
-}
