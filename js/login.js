@@ -86,7 +86,8 @@ function check_login(data){
 
             //verificar a senha
             if(myItem.password === data.password){
-                window.location = '.././pages/thanks.html' // ir para página de usuário [github pages]
+                window.location = './pages/thanks.html' // ir para página de usuário [github pages]
+                
                 //window.location = '../pages/thanks.html' // ir para página de usuário
             }else{
                 dataIsValid = false; // dados não é valido
