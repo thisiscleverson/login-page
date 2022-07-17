@@ -5,12 +5,17 @@
    Autor: Cleverson Emanuel Silva
 
 */
+//importar modulos de avisos
+import { warningLoginErro, warningInput } from "./warning.js";
 
+
+
+//querySelector para pegar o formulario
 const form__login = document.querySelector('.form__login');
 
 
-
 //-------------------------------------------------------------------------------------------//
+//objeto dos dados do login
 const LoginData = {
     email:    NaN,
     password: NaN
@@ -26,47 +31,28 @@ function check_Email(email){
     let user     = Email.split("@")[0]; // usuário
     let provider = Email.split("@")[1]; // provedor
 
-    //verificar se os caracteres é menor que o permitido
-    if(user.length > 4){ // verificar se os caracteres é maior que 4
-        // verificar se o usuário não tem os caracters especiais atraves de uma lista de caracteres
-        for(let i=0; i < character.length; i++){
-            if(user.includes(character[i])){
-                console.log('1: somente letras (a - z), números(0 - 9) e pontos(.) são permitidos!');
-                return;
-            }
-        }
 
-        //verificar se o provedor não é menor que 4
-        
-            // verificar se o provedor não tem os caracters especiais atraves de uma lista de caracteres
-        for(let i=0; i < character.length; i++){
-            if(provider.includes(character[i])){
-                console.log('2: somente letras (a - z), números(0 - 9) e pontos(.) são permitidos!');
-                return;
-            }
-        }
         // verificar qual provedor é
-        switch(provider){
-            case "gmail.com":
-                LoginData.email = user + "@" + provider;
-            break;
+    switch(provider){
+        case "gmail.com":
+            LoginData.email = user + "@" + provider;
+        break;
 
-            case "yahool.com":
-                LoginData.email = user + "@" + provider;
-            break;
+        case "yahool.com":
+            LoginData.email = user + "@" + provider;
+        break;
 
-            case "outlook.com":
-                LoginData.email = user + "@" + provider;
-            break;
+        case "outlook.com":
+            LoginData.email = user + "@" + provider;
+        break;
 
-            default:
-                console.log('e-mail desconhecido!')
-        }
-
-    }else{
-        console.log('1: seu sobrenome tem o n° de letras insuficientes!');
+        default:
+            let msg = "❗ Seu provedor de email é desconhecido! Por favor use ['gmail','yahool' ou 'outlook']."
+            warningLoginErro(msg); // mostrar erro do login [conta não registrada]
+            return false;
     }
 
+    return true
 }
 
 
@@ -75,9 +61,13 @@ function check_Password(password){
 
     if(Password.length > 7){
         LoginData.password = Password;
+        warningInput('#aviso__password', '', '.div__input', '--color-darker-gray');
+        return true;
     }
     else{
-        console.log('Sua senha tem que ter no minimo 8 caracteres!')
+        let msg = 'Sua senha tem que ter no minimo 8 caracteres!'
+        warningInput('#aviso__password', msg, '.div__input', 'red');
+        return false; 
     }
 }
 
@@ -97,8 +87,8 @@ function check_login(data){
             }
         }
     }
-
-    console.log('Conta não registrada!')
+    let msg = "❗ Seus dados não conferem. Por favor, verifique se seus dados estão corretos."
+    warningLoginErro(msg); // mostrar erro do login [conta não registrada]
 }
 
 
@@ -111,10 +101,12 @@ form__login.addEventListener('submit', function register(event){
     let get_Password = document.querySelector('.input__senha');       // pegar a senha da caixa de input 
 
     //---------------------------------------------------//
-    check_Email(get_Email);        // verificar o E-mail
-    check_Password(get_Password);  // verificar a senha do usuário
+    let emailOkay    = check_Email(get_Email);        // verificar o E-mail
+    let passwordOkay = check_Password(get_Password);  // verificar a senha do usuário
     //---------------------------------------------------//
-    check_login(LoginData);  // verificar login
-    
-    
+
+    if(emailOkay == true && passwordOkay == true){
+        check_login(LoginData);  // verificar login
+    }
+
 })
