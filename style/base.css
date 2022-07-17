@@ -12,6 +12,7 @@
     --font-rubik: 'Rubik Moonrocks', cursive;
     --font-dosis: 'Dosis', sans-serif;
     --font-roboto: 'Roboto', sans-serif;
+    --font-monospace: monospace;
 
     /*colors: */
 
@@ -25,6 +26,9 @@
     --color-darker-gray: rgba(223, 223, 223, 0.836);
     --color-black: black;
     --color-dark-blue: rgba(31, 173, 255, 0.527); 
+    --color-red: red; 
+
+    --color-warning-darl-red: rgba(255, 38, 0, 0.363);
     
     
 }
