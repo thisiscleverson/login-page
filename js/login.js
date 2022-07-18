@@ -25,7 +25,7 @@ const LoginData = {
 //------------------------------------------[functions]--------------------------------------//
 function check_Email(email){
     let Email = email.value;
-    
+
     //separar usuário do provedor de email
     let user     = Email.split("@")[0]; // usuário
     let provider = Email.split("@")[1]; // provedor
@@ -64,7 +64,7 @@ function check_Password(password){
         return true;
     }
     else{
-        let msg = 'Sua senha tem que ter no minimo 8 caracteres!'
+        let msg = 'Sua senha tem que ter no mínimo 8 caracteres!'
         warningInput('#aviso__password', msg, '.div__input', 'red');
         return false; 
     }
