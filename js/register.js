@@ -25,24 +25,25 @@ const personData = {
 //funções 
 function check_Name(name){
     let Name = name.value;
-    const character = ['!','@','#','$','%','¨','&','*','(',')','-','=','+']; // lista de caracteris não permitido
     
     if(Name.length >= 4){ // verificar se os caracteres é maior que 4
         // verificar se o sobrenome não tem os caracters especiais atraves de uma lista de caracteres
-        for(let i=0; i < character.length; i++){
-            if(Name.includes(character[i])){
-                let msg = '"nome" deve conter apenas caracteres alfanuméricos.';
-                warningInput('#warning_name', msg,'.input__nome','red');
-                return false;
-            }
+        let Char = /^[a-z0-9]+$/i;
+        let Valid = Char.test(name.value);
+
+        if(Valid == false){
+            let msg = '"nome" deve conter apenas caracteres alfanuméricos.';
+            warningInput('#warning_name', msg,'.input__nome','red');
+            return false;
         }
+
         personData.name = Name; // gardar o sobrenome para o envio da dados
         warningInput('#warning_name', '','.input__nome','--color-darker-gray');
         return true;
 
     }
     else{
-        let msg = 'Seu nome tem que ter no minimo 4 letra';
+        let msg = 'Seu nome tem que ter no mínimo 4 letra';
         warningInput('#warning_name', msg,'.input__nome','red');
         return false;
     }
@@ -51,23 +52,24 @@ function check_Name(name){
 
 function check_Surname(surname){
     let Surname = surname.value;
-    const character = ['!','@','#','$','%','¨','&','*','(',')','-','=','+']; // lista de caracteris não permitido
     
     if(Surname.length > 4){ // verificar se os caracteres é maior que 4
-       // verificar se o sobrenome não tem os caracters especiais atraves de uma lista de caracteres
-       for(let i=0; i < character.length; i++){
-            if(Surname.includes(character[i])){
-                let msg = '"sobrenome" deve conter apenas caracteres alfanuméricos.';
-                warningInput('#warning_surname', msg,'.input__sobrenome','red');
-                return false;
-            }
+       // verificar se é alfanumerico
+        let Char = /^[a-z0-9]+$/i;
+        let Valid = Char.test(name.value);
+
+        if(Valid == false){
+            let msg = '"sobrenome" deve conter apenas caracteres alfanuméricos.';
+            warningInput('#warning_name', msg,'.input__nome','red');
+            return false;
         }
+
         personData.surname = Surname; // gardar o sobrenome para o envio da dados
         warningInput('#warning_surname', '','.input__sobrenome','--color-darker-gray');
         return true;
     }
     else{
-        let msg = 'Seu sobrenome tem que ter no minimo 4 letra';
+        let msg = 'Seu sobrenome tem que ter no mínimo 4 letra';
         warningInput('#warning_surname', msg,'.input__sobrenome','red');
         return false;
     }
@@ -120,7 +122,7 @@ function check_Password(password){
         return true;
     }
     else{
-        let msg = 'Sua senha tem que ter no minimo 8 caracteres!'
+        let msg = 'Sua senha tem que ter no mínimo 8 caracteres!'
         warningInput('#warning_password', msg,'.div__input','red');
         return false;
     }
