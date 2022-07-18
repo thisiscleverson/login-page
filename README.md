@@ -15,6 +15,8 @@ Esse projeto foi feito com o intuito de treinar minhas abilidades no <code>HTML<
 	<strong>003:</strong> <a href="./src/003.md">botão mostrar/ocultar senha</a>
 	<br>
 	<strong>004:</strong> <a href="./src/004.md">criando o script do cadastro</a>
+	<br>
+	<strong>005:</strong> <a href="./src/005.md">script de avisos</a>
 	
 </details>
 
