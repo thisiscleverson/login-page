@@ -56,7 +56,7 @@ function check_Surname(surname){
     if(Surname.length > 4){ // verificar se os caracteres é maior que 4
        // verificar se é alfanumerico
         let Char = /^[a-z0-9]+$/i;
-        let Valid = Char.test(name.value);
+        let Valid = Char.test(surname.value);
 
         if(Valid == false){
             let msg = '"sobrenome" deve conter apenas caracteres alfanuméricos.';
